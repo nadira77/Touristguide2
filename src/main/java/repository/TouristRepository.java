@@ -16,7 +16,7 @@ public class TouristRepository {
 
     public TouristAttraction updateTouristAttraction(String name, TouristAttraction updatedTouristAttraction) {
         for ( TouristAttraction touristAttraction : touristAttractions) {
-            if ( touristAttraction.name().equals(name)){
+            if ( touristAttraction.getName().equals(name)){
                 int index = touristAttractions.indexOf(touristAttraction);
                 touristAttractions.set(index, updatedTouristAttraction);
                 return updatedTouristAttraction;
@@ -45,7 +45,7 @@ public class TouristRepository {
 
     public TouristAttraction findByName(String name) {
         for (TouristAttraction touristAttraction: touristAttractions)
-            if (touristAttraction.name().equalsIgnoreCase(name)){
+            if (touristAttraction.getName().equalsIgnoreCase(name)){
                 return touristAttraction;
             }
         return null;
