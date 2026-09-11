@@ -7,7 +7,6 @@ import repository.TouristRepository;
 import java.util.List;
 
 @Service
-
 public class TouristService {
     private final TouristRepository touristRepository;
 
