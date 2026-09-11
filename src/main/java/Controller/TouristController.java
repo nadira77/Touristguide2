@@ -19,6 +19,11 @@ public class TouristController {
         return "index";
     }
 
+    @GetMapping("/copenhagen")
+    public String copenhagen() {
+        return "copenhagen";
+    }
+
     @GetMapping("/attractions")
     public String getAllAttractions(Model model) {
         model.addAttribute("attractions", touristService.getAllTouristAttractions());
