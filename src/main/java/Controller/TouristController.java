@@ -47,6 +47,20 @@ public class TouristController {
     public ResponseEntity<TouristAttraction> add(@RequestBody TouristAttraction touristAttraction) { // POST /attractions/add
         return ResponseEntity.ok(touristService.addTouristAttraction(touristAttraction));
     }
+    @PostMapping("/save")
+    public String save(@ModelAttribute TouristAttraction attraction) {
+        touristService.addTouristAttraction(attraction); // gem det nye objekt i repository og efter send bruger tilbage til listen
+        return "redirect:/attractions";
+    }
+
+    @GetMapping("/{name}/edit")
+    public String editForm(@PathVariable String name, Model model) {
+        TouristAttraction attraction = touristService.getTouristAttraction(name);
+        model.addAttribute("attraction", attraction);
+        model.addAttribute("allCities", touristService.getCities());
+        model.addAttribute("allTags", touristService.getTags());
+        return "updateAttraction";
+    }
 
     @PostMapping("/attractions/update")
     public ResponseEntity<TouristAttraction> update(@RequestBody TouristAttraction touristAttraction) { // POST /attractions/update
