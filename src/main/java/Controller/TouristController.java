@@ -37,16 +37,19 @@ public class TouristController {
     }
 
     @GetMapping("/attractions/{name}")
-    public ResponseEntity<TouristAttraction> getByName(@PathVariable String name) { // GET /attractions/{name}
-        TouristAttraction attraction = touristService.getTouristAttractionByName(name);
-        if (attraction == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(attraction);
+    public String getByName(@PathVariable String name) { // GET /attractions/{name}
+        model.addAttribute("attraction",touristService.getTouristAttractionByName(name));
+        return"attractionDetails";
     }
 
-    @PostMapping("/attractions/add")
-    public ResponseEntity<TouristAttraction> add(@RequestBody TouristAttraction touristAttraction) { // POST /attractions/add
-        return ResponseEntity.ok(touristService.addTouristAttraction(touristAttraction));
+    @GetMapping("/attractions/add")
+    public String addForm(Model model) {
+        model.addAttribute("attraction", new TouristAttraction());
+        model.addAttribute("allCities", touristService.getCities());
+        model.addAttribute("allTags", touristService.getTags());
+        return "add";
     }
+
     @PostMapping("/save")
     public String save(@ModelAttribute TouristAttraction attraction) {
         touristService.addTouristAttraction(attraction); // gem det nye objekt i repository og efter send bruger tilbage til listen
@@ -63,16 +66,14 @@ public class TouristController {
     }
 
     @PostMapping("/attractions/update")
-    public ResponseEntity<TouristAttraction> update(@RequestBody TouristAttraction touristAttraction) { // POST /attractions/update
-        TouristAttraction updated = touristService.updateTouristAttraction(touristAttraction.getName(), touristAttraction);
-        if (updated == null) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok(updated);
+    public String update(@ModelAttribute TouristAttraction touristAttraction) {
+        touristService.updateTouristAttraction(touristAttraction.getName(), touristAttraction);
+        return "redirect:/attractions";
     }
 
     @PostMapping("/attractions/delete/{name}")
-    public ResponseEntity<String> delete(@PathVariable String name) { // POST /attractions/delete/{name}
-        boolean deleted = touristService.deleteTouristAttraction(name);
-        if (!deleted) return ResponseEntity.notFound().build();
-        return ResponseEntity.ok("Attraktion slettet");
+    public String delete(@PathVariable String name) {
+        touristService.deleteTouristAttraction(name);
+        return "redirect:/attractions";
     }
 }
