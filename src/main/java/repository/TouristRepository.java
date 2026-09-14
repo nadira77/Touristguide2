@@ -1,7 +1,9 @@
 package repository;
 
+import Model.Tag;
 import Model.TouristAttraction;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.AlternativeJdkIdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,15 @@ public class TouristRepository {
         return true;
     }
 
+    public TouristAttraction AddTagToTouristattraction(String name, Tag tag) {
+        for (TouristAttraction touristAttraction : touristAttractions)
+            if (touristAttraction.getName().equalsIgnoreCase(name)) {
+                touristAttraction.addTag(tag);
+                return touristAttraction;
+            }
+        return null;
+    }
+
     public TouristAttraction save(TouristAttraction touristAttraction) {
         touristAttractions.add(touristAttraction);
         return touristAttraction;
@@ -58,14 +69,14 @@ public class TouristRepository {
     }
 
     public void populate() {
-        touristAttractions.add(new TouristAttraction("Tivoli", "19th-century amusement park with antique roller coaster & live entertainment program."));
-        touristAttractions.add(new TouristAttraction("Rosenborg Castle", "Dutch Renaissance palace & gardens, including a museum housing the crown jewels, with guided tours."));
-        touristAttractions.add(new TouristAttraction("Frederiksborg Castle", "Dutch Renaissance palace & gardens, including a museum housing the crown jewels, with guided tours."));
-        touristAttractions.add(new TouristAttraction("Nyhavn", "Copenhagen's Nyhaven, or \"New Harbor,\" is actually steeped in a long heritage. Colorful buildings line the canal and hint at a history of small-vessel traffic. "));
-        touristAttractions.add(new TouristAttraction("The Little Mermaid", "Bronze statue by Edvard Eriksen depicting a mermaid, based on the fairy tale by Hans Christian Andersen."));
-        touristAttractions.add(new TouristAttraction("Christiansborg Palace", "Seat of the Danish Parliament, the Supreme Court, and the Prime Minister's office, with a royal reception hall."));
-        touristAttractions.add(new TouristAttraction("The Round Tower", "17th-century tower with a spiral ramp leading to an observatory offering panoramic views of Copenhagen."));
-        touristAttractions.add(new TouristAttraction("Amalienborg Palace", "Winter home of the Danish royal family, consisting of four identical palace buildings around an octagonal courtyard."));
+        touristAttractions.add(new TouristAttraction("Tivoli", "19th-century amusement park with antique roller coaster & live entertainment program.","Copenhagen",List.of(Tag.KID_FRIENDLY, Tag.NATURE)));
+        touristAttractions.add(new TouristAttraction("Rosenborg Castle", "Dutch Renaissance palace & gardens, including a museum housing the crown jewels, with guided tours.","Copenhagen",List.of(Tag.MUSEUM, Tag.NATURE)));
+        touristAttractions.add(new TouristAttraction("Frederiksborg Castle", "Dutch Renaissance palace & gardens, including a museum housing the crown jewels, with guided tours.","Copenhagen",List.of(Tag.MUSEUM, Tag.NATURE)));
+        touristAttractions.add(new TouristAttraction("Nyhavn", "Copenhagen's Nyhaven, or \"New Harbor,\" is actually steeped in a long heritage. Colorful buildings line the canal and hint at a history of small-vessel traffic. ","Copenhagen",List.of(Tag.FREE, Tag.NATURE)));
+        touristAttractions.add(new TouristAttraction("The Little Mermaid", "Bronze statue by Edvard Eriksen depicting a mermaid, based on the fairy tale by Hans Christian Andersen.","Copenhagen",List.of(Tag.FREE, Tag.ART)));
+        touristAttractions.add(new TouristAttraction("Christiansborg Palace", "Seat of the Danish Parliament, the Supreme Court, and the Prime Minister's office, with a royal reception hall.","Copenhagen",List.of(Tag.MUSEUM)));
+        touristAttractions.add(new TouristAttraction("The Round Tower", "17th-century tower with a spiral ramp leading to an observatory offering panoramic views of Copenhagen.","Copenhagen",List.of(Tag.NATURE)));
+        touristAttractions.add(new TouristAttraction("Amalienborg Palace", "Winter home of the Danish royal family, consisting of four identical palace buildings around an octagonal courtyard.","Copenhagen",List.of(Tag.FREE)));
     }
 
     public List<TouristAttraction> getTouristAttractions() {
