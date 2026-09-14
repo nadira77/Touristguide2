@@ -9,13 +9,13 @@ public class TouristAttraction {
     private final String city;
     private final List<Tag>tags;
 
-    public TouristAttraction(String name, String description, String ciry){
-        this(name,description,ciry,List.of());
+    public TouristAttraction(String name, String description, String city){
+        this(name,description,city,List.of());
     }
-    public TouristAttraction(String name, String description, String ciry, List<Tag> tags) {
+    public TouristAttraction(String name, String description, String city, List<Tag> tags) {
         this.name = name;
         this.description = description;
-        this.city = ciry;
+        this.city = city;
         this.tags = tags;
     }
 
