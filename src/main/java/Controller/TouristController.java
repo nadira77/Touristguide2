@@ -30,6 +30,12 @@ public class TouristController {
         return "attractionList";
     }
 
+    @GetMapping("/attractions/{name}/tag")
+    public String getTags(Model model, @PathVariable String name) { // GET /attractions/{name}
+        model.addAttribute("attractions",touristService.getTouristAttractionByName(name));
+        return "tags";
+    }
+
     @GetMapping("/attractions/{name}")
     public ResponseEntity<TouristAttraction> getByName(@PathVariable String name) { // GET /attractions/{name}
         TouristAttraction attraction = touristService.getTouristAttractionByName(name);

@@ -1,5 +1,6 @@
 package service;
 
+import Model.Tag;
 import Model.TouristAttraction;
 import org.springframework.stereotype.Service;
 import repository.TouristRepository;
@@ -17,6 +18,11 @@ public class TouristService {
     public List<TouristAttraction> getAllTouristAttractions() {
         return touristRepository.getTouristAttractions();
     }
+
+    public TouristAttraction addTag(String name, Tag tag){
+        return touristRepository.AddTagToTouristattraction(name, tag);
+    }
+
 
     public TouristAttraction getTouristAttractionByName(String name) {
         return touristRepository.findByName(name);
