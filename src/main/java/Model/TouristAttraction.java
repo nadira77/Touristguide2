@@ -37,4 +37,6 @@ public class TouristAttraction {
     public void addTag(Tag tag){
         tags.add(tag);
     }
+
+
 }
