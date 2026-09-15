@@ -7,6 +7,9 @@
 <body>
 <h2> Tivoli tags</h2>
 
+<div th:replace="~{fragment.html :: header}"></div>
+<div th:replace="~{fragment.html :: footer}"></div>
+
 <div>
 <form th:action="@{/attractions/{name}/tag}"
       th:object="attractions"
