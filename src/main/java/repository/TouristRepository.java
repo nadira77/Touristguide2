@@ -3,7 +3,7 @@ package repository;
 import Model.Tag;
 import Model.TouristAttraction;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.AlternativeJdkIdGenerator;
+
 
 import java.util.ArrayList;
 import java.util.List;
