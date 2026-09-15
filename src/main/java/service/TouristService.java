@@ -50,6 +50,14 @@ public class TouristService {
         return touristRepository.findByName(name);
     }
 
+    public List<String> getCities() {
+        return touristRepository.getCities();
+    }
+
+    public List<String> getTags() {
+        return touristRepository.getTags();
+    }
+
 
 
 
