@@ -2,12 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/touristguide.css}">
     <title>Tags</title>
 </head>
 <body>
 <h2> Tivoli tags</h2>
 
-<div th:replace="~{fragment :: header}"></div>
+<header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+        <a class="logo" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="logo-badge badge-red">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                </svg>
+            </span>
+            <span class="logo-text">
+                <span class="main">Turistguide</span>
+                <span class="sub">Explore Denmark</span>
+            </span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
+            <a class="nav-cta" th:href="@{/attractions}">Zealand</a>
+            <a class="nav-cta" th:href="@{/attractions}">Fyn</a>
+            <a class="nav-cta" th:href="@{/attractions}">Jutland</a>
+        </div>
+    </nav>
+</header>
 
 <div>
     <form th:action="@{/{name}/tags(name=${attractions.name})}"
@@ -20,6 +41,28 @@
             <a th:href="@{/attractions}" class="???" > Back </a>
 </div>
 
-<div th:replace="~{fragment :: footer}"></div>
+<footer class="site-footer">
+    <div class="footer-shell">
+        <div>
+            <a class="logo footer-brand" th:href="@{/}">
+                <span class="logo-badge badge-red">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                    </svg>
+                </span>
+                <span class="logo-text">
+                    <span class="main">Turistguide</span>
+                    <span class="sub">Explore Denmark</span>
+                </span>
+            </a>
+        </div>
+        <span class="footer-year">&copy; 2026 Tourist Attraction in Denmark.</span>
+        <div class="footer-contact">
+            <span class="footer-label">Contact</span>
+            <a href="mailto:hello@touristguide.example">hello@touristguide.example</a>
+            <span>Copenhagen &middot; Denmark</span>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

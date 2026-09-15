@@ -63,6 +63,53 @@ a {
     font-size: 0.85rem;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.logo-badge svg {
+    width: 26px;
+    height: 26px;
+}
+
+.badge-red {
+    background: linear-gradient(135deg, #d62828 0%, #a4161a 100%);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+.logo-text .main {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+.logo-text .sub {
+    color: #9fb8d1;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: 2px;
+}
+
 .nav-links {
     display: flex;
     gap: 24px;
