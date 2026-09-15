@@ -2,6 +2,7 @@ package service;
 
 import Model.Tag;
 import Model.TouristAttraction;
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import repository.TouristRepository;
 
@@ -44,4 +45,13 @@ public class TouristService {
     public boolean deleteTouristAttraction(String name) {
         return touristRepository.deleteTouristAttraction(name);
     }
+
+    public TouristAttraction getTouristAttraction(String name) {
+        return touristRepository.findByName(name);
+    }
+
+
+
+
 }
+

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tags</title>
 </head>
 <body>
+<h2> Tivoli tags</h2>
 
 <div th:replace="~{fragment.html :: header}"></div>
 <div th:replace="~{fragment.html :: footer}"></div>
 
+<div>
+<form th:action="@{/attractions/{name}/tag}"
+      th:object="attractions"
+      method="get">
+<ul>
+    <li th:each ="tag : ${attractions.tags}" th:text ="${tag}"></li>
+</ul>
+</form>
+    <a th:href="@{/attractionList.html}" class="???" > Back </a>
+</div>
+<button> Back</button>
 </body>
 </html>
