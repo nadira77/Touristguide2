@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/copenhagen.css">
+    <link rel="stylesheet" th:href="@{/touristguide.css}">
+    <link rel="stylesheet" th:href="@{/copenhagen.css}">
     <title>Tourist Guide</title>
 
 </head>
 <body>
+
+<div th:replace="~{fragment.html :: header}"></div>
+
 <div class = "main-container">
-    <header>
-        <h1 id="main-header"> Welcome to Copenhagen </h1>
-    </header>
+    <h1 id="main-header"> Welcome to Copenhagen </h1>
 </div>
 
 
@@ -141,8 +143,6 @@
     </ul>
 </div>
 
-<footer>
-    <p> &copy; 2026 Tourist Attraction in Denmark. All rights reserved.</p>
-</footer>
+<div th:replace="~{fragment.html :: footer}"></div>
 </body>
 </html>

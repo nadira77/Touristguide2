@@ -2,12 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/touristguide.css}">
     <title>Tags</title>
 </head>
 <body>
 <h2> Tivoli tags</h2>
 
-<div th:replace="~{fragment :: header}"></div>
+<div th:replace="~{fragment.html :: header}"></div>
 
 <div>
     <form th:action="@{/{name}/tags(name=${attractions.name})}"
@@ -20,6 +21,6 @@
             <a th:href="@{/attractions}" class="???" > Back </a>
 </div>
 
-<div th:replace="~{fragment :: footer}"></div>
+<div th:replace="~{fragment.html :: footer}"></div>
 </body>
 </html>
