@@ -15,9 +15,16 @@
 
 <header class="site-header">
     <nav class="nav-shell" aria-label="Main navigation">
-        <a class="brand" th:href="@{/}" aria-label="Tourist guide home">
-            <span class="brand-mark">TG</span>
-            <span>Tourist guide</span>
+        <a class="logo" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="logo-badge badge-red">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                </svg>
+            </span>
+            <span class="logo-text">
+                <span class="main">Turistguide</span>
+                <span class="sub">Explore Denmark</span>
+            </span>
         </a>
         <div class="nav-links">
             <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
@@ -159,9 +166,16 @@
 <footer class="site-footer">
     <div class="footer-shell">
         <div>
-            <a class="brand footer-brand" th:href="@{/}">
-                <span class="brand-mark">TG</span>
-                <span>Tourist guide</span>
+            <a class="logo footer-brand" th:href="@{/}">
+                <span class="logo-badge badge-red">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                    </svg>
+                </span>
+                <span class="logo-text">
+                    <span class="main">Turistguide</span>
+                    <span class="sub">Explore Denmark</span>
+                </span>
             </a>
             <p class="footer-note">A small guide for big days out.</p>
         </div>
