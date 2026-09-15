@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TouristAttraction {
-    private final String name;
-    private final String description;
-    private final String city;
-    private final List<Tag>tags;
+    private  String name;
+    private  String description;
+    private  String city;
+    private  List<Tag>tags;
 
     public TouristAttraction(String name, String description, String city){
         this(name,description,city,List.of());
@@ -17,6 +17,10 @@ public class TouristAttraction {
         this.description = description;
         this.city = city;
         this.tags = tags;
+    }
+
+    public TouristAttraction() {
+
     }
 
     public String getName() {
@@ -32,6 +36,22 @@ public class TouristAttraction {
     }
     public List<Tag> getTags() {
         return tags;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void addTag(Tag tag){
