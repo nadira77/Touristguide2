@@ -10,7 +10,7 @@
 <div th:replace="~{fragment :: header}"></div>
 
 <div>
-    <form th:action="@{/attractions/{name}/tag(name=${attractions.name})}"
+    <form th:action="@{/{name}/tag(name=${attractions.name})}"
       th:object="${attractions}"
       method="get">
         <ul>
