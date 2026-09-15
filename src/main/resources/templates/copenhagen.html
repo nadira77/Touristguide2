@@ -13,7 +13,20 @@
 </head>
 <body>
 
-<div th:replace="~{fragment.html :: header}"></div>
+<header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="brand-mark">TG</span>
+            <span>Tourist guide</span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
+            <a class="nav-cta" th:href="@{/attractions}">Zealand</a>
+            <a class="nav-cta" th:href="@{/attractions}">Fyn</a>
+            <a class="nav-cta" th:href="@{/attractions}">Jutland</a>
+        </div>
+    </nav>
+</header>
 
 <div class = "main-container">
     <h1 id="main-header"> Welcome to Copenhagen </h1>
@@ -143,6 +156,22 @@
     </ul>
 </div>
 
-<div th:replace="~{fragment.html :: footer}"></div>
+<footer class="site-footer">
+    <div class="footer-shell">
+        <div>
+            <a class="brand footer-brand" th:href="@{/}">
+                <span class="brand-mark">TG</span>
+                <span>Tourist guide</span>
+            </a>
+            <p class="footer-note">A small guide for big days out.</p>
+        </div>
+        <span class="footer-year">&copy; 2026 Tourist Attraction in Denmark.</span>
+        <div class="footer-contact">
+            <span class="footer-label">Contact</span>
+            <a href="mailto:hello@touristguide.example">hello@touristguide.example</a>
+            <span>Copenhagen &middot; Denmark</span>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
