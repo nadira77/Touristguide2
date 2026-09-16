@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Turistattraktioner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turist Attractions</title>
     <link rel="stylesheet" th:href="@{/touristguide.css}">
     <link rel="stylesheet" th:href="@{/attractionList.css}">
 
@@ -12,9 +13,16 @@
 
 <header class="site-header">
     <nav class="nav-shell" aria-label="Main navigation">
-        <a class="brand" th:href="@{/}" aria-label="Tourist guide home">
-            <span class="brand-mark">TG</span>
-            <span>Tourist guide</span>
+        <a class="logo" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="logo-badge badge-red">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                </svg>
+            </span>
+            <span class="logo-text">
+                <span class="main">Turistguide</span>
+                <span class="sub">Explore Denmark</span>
+            </span>
         </a>
         <div class="nav-links">
             <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
@@ -24,46 +32,74 @@
         </div>
     </nav>
 </header>
-
 <div class="attractions-page">
-
 
     <h1 id="main-header">Turist Attraktions</h1>
 
     <table>
         <tr>
-            <th>Navn</th>
-            <th>Beskrivelse</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>City</th>
             <th></th>
         </tr>
         <tr th:each="attraction, iterStat : ${touristAttractions}">
-            <td th:text="${attraction.name}">Navn</td>
-            <td th:text="${attraction.description}">Beskrivelse</td>
+            <td th:text="${attraction.name}">Attraction</td>
+            <td th:text="${attraction.description}">Description</td>
+            <td th:text="${attraction.city}">City</td>
             <td>
-                <a th:href="@{/attraction/update/{id}(id=${iterStat.index})}">
-                    <button class="btn update">Opdater</button>
-                </a>
-                <a th:href="@{/attraction/delete/{id}(id=${iterStat.index})}">
-                    <button class="btn delete">Slet</button>
-                </a>
-                <a th:href="@{/attraction/tags/{id}(id=${iterStat.index})}">
-                    <button class="btn tags">Tags</button>
-                </a>
-
-
+                <div class="action-buttons">
+                    <a th:href="@{/{name}/edit(name=${attraction.name})}">
+                        <button class="btn update">Update</button>
+                    </a>
+                    <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}" method="post"
+                          th:attr="data-attraction-name=${attraction.name}"
+                          onsubmit="return confirm('Are you sure you want to delete ' + this.dataset.attractionName + '?');">
+                        <button type="submit" class="btn delete">Delete</button>
+                    </form>
+                    <a th:href="@{/{name}/tags(name=${attraction.name})}">
+                        <button class="btn tags">Tags</button>
+                    </a>
+                </div>
             </td>
         </tr>
     </table>
 
-    <a th:href="@{/attraction/add}">
-        <button class="add-btn">Tilføj attraktion</button>
+    <a th:href="@{/attractions/add}">
+        <button class="add-btn">Add Attraction</button>
     </a>
 
     <a th:href="@{/}">
-        <button type="button" class="btn tags">Tilbage</button>
+        <button class="add-btn">Back</button>
     </a>
 
+
 </div>
+
+
+    <footer class="site-footer">
+        <div class="footer-shell">
+            <div>
+                <a class="logo footer-brand" th:href="@{/}">
+                <span class="logo-badge badge-red">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                    </svg>
+                </span>
+                    <span class="logo-text">
+                    <span class="main">Turistguide</span>
+                    <span class="sub">Explore Denmark</span>
+                </span>
+                </a>
+            </div>
+            <span class="footer-year">&copy; 2026 Tourist Attraction in Denmark.</span>
+            <div class="footer-contact">
+                <span class="footer-label">Contact</span>
+                <a href="mailto:hello@touristguide.example">hello@touristguide.example</a>
+                <span>Copenhagen &middot; Denmark</span>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
