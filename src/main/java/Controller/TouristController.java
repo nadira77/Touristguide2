@@ -14,6 +14,7 @@ public class TouristController {
     public TouristController(TouristService touristService) { // constructor injection
         this.touristService = touristService;
     }
+
     @GetMapping({"/", "/index.html"})
     public String welcome() {
         return "index";
@@ -26,7 +27,7 @@ public class TouristController {
 
     @GetMapping("/attractions")
     public String getAllAttractions(Model model) {
-        model.addAttribute("attractions", touristService.getAllTouristAttractions());
+        model.addAttribute("touristAttractions", touristService.getAllTouristAttractions());
         return "attractionList";
     }
 
