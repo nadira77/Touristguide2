@@ -23,11 +23,19 @@
 <body>
 <!-- Main heading displayed on the page. -->
 
+
 <header class="site-header">
     <nav class="nav-shell" aria-label="Main navigation">
-        <a class="brand" th:href="@{/}" aria-label="Tourist guide home">
-            <span class="brand-mark">TG</span>
-            <span>Tourist guide</span>
+        <a class="logo" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="logo-badge badge-red">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                </svg>
+            </span>
+            <span class="logo-text">
+                <span class="main">Turistguide</span>
+                <span class="sub">Explore Denmark</span>
+            </span>
         </a>
         <div class="nav-links">
             <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
@@ -37,6 +45,7 @@
         </div>
     </nav>
 </header>
+
 
 <div class="attractions-page">
 <h1 id="main-header">Add New Attraction</h1>
@@ -57,7 +66,7 @@
         @RequestParam String name to get this value.
         required means the user must enter something.
     -->
-    <input type="text" id="name" name="name" required>
+    <input type="text" id="name" name="name" placeholder="Enter attraction name" required>
 
     <br><br>
 
@@ -68,6 +77,7 @@
         for the description.-->
     <textarea id="description"
               name="description"
+              placeholder="Enter attraction description"
               required></textarea>
 
     <br><br>
@@ -78,13 +88,13 @@
     <input type="text"
            id="city"
            name="city"
+           placeholder="Enter attraction location"
            required>
     <br><br>
     <!-- Label for the tags input. -->
     <!-- Input checkboxes where the user can select tags. -->
-
+    <label>Tags:</label>
     <div th:each="tag : ${tags}">
-        <label>Tags:</label>
             <input type="checkbox"
                    th:id="${tag}"
                    name="tags"

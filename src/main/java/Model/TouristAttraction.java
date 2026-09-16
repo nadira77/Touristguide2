@@ -10,6 +10,7 @@ public class TouristAttraction {
     private  List<Tag>tags;
 
     public TouristAttraction(String name, String description, String city){
+
         this(name,description,city,List.of());
     }
     public TouristAttraction(String name, String description, String city, List<Tag> tags) {
@@ -20,7 +21,7 @@ public class TouristAttraction {
     }
 
     public TouristAttraction() {
-
+        this.tags = new ArrayList<>();
     }
 
     public String getName() {
