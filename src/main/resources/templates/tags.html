@@ -31,13 +31,19 @@
 
 <div>
     <h2> Tivoli tags</h2>
-    <form th:action="@{/{name}/tags(name=${attractions.name})}"
-      th:object="${attractions}"
-      method="get">
-        <ul>
-             <li th:each ="tag : ${attractions.tags}" th:text ="${tag}"></li>
-        </ul>
-    </form>
+    <div>
+        <table>
+            <form th:action="@{/{name}/tags(name=${attractions.name})}"
+                  th:object="${attractions}"
+                  method="get">
+                <ul>
+                    <li th:each ="tag : ${attractions.tags}" th:text ="${tag}"></li>
+                </ul>
+            </form>
+        </table>
+
+    </div>
+
             <a th:href="@{/attractions}" class="touristguide" > Back </a>
 </div>
 
