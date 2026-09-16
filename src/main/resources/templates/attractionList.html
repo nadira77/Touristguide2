@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Turistattraktioner</title>
+    <link rel="stylesheet" th:href="@{/touristguide.css}">
+    <link rel="stylesheet" th:href="@{/attractionList.css}">
+
+
 </head>
 <body>
+
+<header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="brand-mark">TG</span>
+            <span>Tourist guide</span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
+            <a class="nav-cta" th:href="@{/attractions}">Zealand</a>
+            <a class="nav-cta" th:href="@{/attractions}">Fyn</a>
+            <a class="nav-cta" th:href="@{/attractions}">Jutland</a>
+        </div>
+    </nav>
+</header>
+
+<div class="attractions-page">
+
+
+    <h1 id="main-header">Turist Attraktions</h1>
+
+    <table>
+        <tr>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th></th>
+        </tr>
+        <tr th:each="attraction, iterStat : ${touristAttractions}">
+            <td th:text="${attraction.name}">Navn</td>
+            <td th:text="${attraction.description}">Beskrivelse</td>
+            <td>
+                <a th:href="@{/attraction/update/{id}(id=${iterStat.index})}">
+                    <button class="btn update">Opdater</button>
+                </a>
+                <a th:href="@{/attraction/delete/{id}(id=${iterStat.index})}">
+                    <button class="btn delete">Slet</button>
+                </a>
+                <a th:href="@{/attraction/tags/{id}(id=${iterStat.index})}">
+                    <button class="btn tags">Tags</button>
+                </a>
+
+
+            </td>
+        </tr>
+    </table>
+
+    <a th:href="@{/attraction/add}">
+        <button class="add-btn">Tilføj attraktion</button>
+    </a>
+
+    <a th:href="@{/}">
+        <button type="button" class="btn tags">Tilbage</button>
+    </a>
+
+</div>
 
 </body>
 </html>
