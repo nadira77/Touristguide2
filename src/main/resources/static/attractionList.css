@@ -1,9 +1,12 @@
 .attractions-page {
-    padding: 40px 48px; }
-.attractions-page h1 {
-    font-size: 1.8rem; color: #10344c;
-    margin-bottom: 20px; }
+    padding: 40px clamp(16px, 5vw, 48px);
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
+.attractions-page h1 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
 .attractions-page table {
     border-collapse: collapse;
     table-layout: fixed;
@@ -33,7 +36,10 @@
     cursor: pointer;
     font-size: 0.8rem;
     margin-right: 4px;
-    font-family: inherit; }
+    font-family: inherit;
+    width: 100%;
+    text-align: center;
+}
 
 .update {
     background-color: #d6e9f0;
@@ -58,3 +64,10 @@
 
 .add-btn:hover {
     background-color: #10344c; }
+
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
