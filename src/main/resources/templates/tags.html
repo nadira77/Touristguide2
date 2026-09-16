@@ -6,7 +6,6 @@
     <title>Tags</title>
 </head>
 <body>
-<h2> Tivoli tags</h2>
 
 <header class="site-header">
     <nav class="nav-shell" aria-label="Main navigation">
@@ -31,6 +30,7 @@
 </header>
 
 <div>
+    <h2> Tivoli tags</h2>
     <form th:action="@{/{name}/tags(name=${attractions.name})}"
       th:object="${attractions}"
       method="get">
@@ -38,7 +38,7 @@
              <li th:each ="tag : ${attractions.tags}" th:text ="${tag}"></li>
         </ul>
     </form>
-            <a th:href="@{/attractions}" class="???" > Back </a>
+            <a th:href="@{/attractions}" class="touristguide" > Back </a>
 </div>
 
 <footer class="site-footer">
