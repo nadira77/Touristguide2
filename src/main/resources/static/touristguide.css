@@ -267,6 +267,12 @@ a {
     font-size: 0.85rem;
 }
 
+/* ---------- tags / table ---------- */
+.tags-table td{
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+}
+
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 1024px) {
     .footer-shell {
