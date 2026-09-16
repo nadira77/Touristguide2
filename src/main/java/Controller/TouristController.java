@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import service.TouristService;
+import Model.Tag;
 
 @Controller
 public class TouristController {
@@ -37,11 +38,18 @@ public class TouristController {
         return "tags";
     }
 
-    @GetMapping("/attractions/add")
+  /*  @GetMapping("/attractions/add")
     public String addForm( Model model) {
         model.addAttribute("attraction", new TouristAttraction());
         return "add";
-    }
+    }*/
+    //Tag.values() gives Thymeleaf adgang til enum og husk import enum class
+  @GetMapping("/attractions/add")
+  public String addForm(Model model) {
+      model.addAttribute("attraction", new TouristAttraction());
+      model.addAttribute("tags", Tag.values());
+      return "add";
+  }
 
     @PostMapping("/save")
     public String save(@ModelAttribute TouristAttraction attraction) {

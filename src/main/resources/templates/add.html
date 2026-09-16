@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<!--
+    lang="en" says that the page is in English.
+
+    xmlns:th tells Thymeleaf that we are going to use
+    Thymeleaf attributes such as th:action.
+-->
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Defines the character encoding used by the page. -->
+
+    <!-- The title shown in the browser tab. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/touristguide.css}">
+    <title>Add Tourist Attraction</title>
+</head>
+
+<body>
+<!-- Main heading displayed on the page. -->
+
+<header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+        <a class="brand" th:href="@{/}" aria-label="Tourist guide home">
+            <span class="brand-mark">TG</span>
+            <span>Tourist guide</span>
+        </a>
+        <div class="nav-links">
+            <a class="nav-cta" th:href="@{/copenhagen}">Copenhagen</a>
+            <a class="nav-cta" th:href="@{/attractions}">Zealand</a>
+            <a class="nav-cta" th:href="@{/attractions}">Fyn</a>
+            <a class="nav-cta" th:href="@{/attractions}">Jutland</a>
+        </div>
+    </nav>
+</header>
+
+<div class="attractions-page">
+<h1 id="main-header">Add New Attraction</h1>
+
+<!--
+    <form> creates a form where the user can enter data.
+    th:action="@{/save}" tells Thymeleaf that the form
+    should send its data to the /save endpoint.
+    method="post" means that the form uses a POST request.
+-->
+<form th:action="@{/save}" method="post">
+    <!-- Label for the name input. -->
+    <label for="name">Name:</label>
+    <!--
+        Creates a text field.
+        id="name" connects the input with the label.
+        name="name" is important because Spring uses
+        @RequestParam String name to get this value.
+        required means the user must enter something.
+    -->
+    <input type="text" id="name" name="name" required>
+
+    <br><br>
+
+    <!-- Label for the description field. -->
+    <label for="description">Description:</label>
+
+    <!--textarea creates a larger text field
+        for the description.-->
+    <textarea id="description"
+              name="description"
+              required></textarea>
+
+    <br><br>
+    <!-- Label for the city input. -->
+    <label for="city">City:</label>
+
+    <!-- Input field where the user enters the city. -->
+    <input type="text"
+           id="city"
+           name="city"
+           required>
+    <br><br>
+    <!-- Label for the tags input. -->
+    <!-- Input checkboxes where the user can select tags. -->
+
+    <div th:each="tag : ${tags}">
+        <label>Tags:</label>
+            <input type="checkbox"
+                   th:id="${tag}"
+                   name="tags"
+                   th:value="${tag}"/>
+
+        <label th:for="${tag}"
+               th:text="${tag}">
+        </label>
+    </div>
+
+    <br><br>
+
+    <!-- Button used to submit the form.
+        When clicked, the form sends a POST request
+        to /save.-->
+    <button class="add-btn" type="submit"> Save </button>
+</form>
+</div>
+
+
+<footer class="site-footer">
+    <div class="footer-shell">
+        <div>
+            <a class="logo footer-brand" th:href="@{/}">
+                <span class="logo-badge badge-red">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 12L21 3L14 21L11 13L2 12Z" fill="#ffffff"/>
+                    </svg>
+                </span>
+                <span class="logo-text">
+                    <span class="main">Turistguide</span>
+                    <span class="sub">Explore Denmark</span>
+                </span>
+            </a>
+        </div>
+        <span class="footer-year">&copy; 2026 Tourist Attraction in Denmark.</span>
+        <div class="footer-contact">
+            <span class="footer-label">Contact</span>
+            <a href="mailto:hello@touristguide.example">hello@touristguide.example</a>
+            <span>Copenhagen &middot; Denmark</span>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
