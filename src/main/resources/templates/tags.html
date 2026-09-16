@@ -29,21 +29,25 @@
     </nav>
 </header>
 
-<div>
-    <h2> Tivoli tags</h2>
+<div class="tags-box">
+    <div class="tags-box__header">
+        <h2> Tivoli tags</h2>
+    </div>
+            <div class="tags-box__body">
+                <form th:action="@{/{name}/tags(name=${attractions.name})}"
+                      th:object="${attractions}"
+                      method="get">
+                        <table class="tags-table">
+                            <tr th:each ="tag : ${attractions.tags}">
+                                <td th:text ="${tag}"></td>
+                            </tr>
+                    </table>
+                </form>
+            </div>
+    <div class="tags-box__footer">
+        <a th:href="@{/attractions}" class="tags-button-back" > Back </a>
+    </div>
 
-
-            <form th:action="@{/{name}/tags(name=${attractions.name})}"
-                  th:object="${attractions}"
-                  method="get">
-                <table class="tags-table">
-                        <tr th:each ="tag : ${attractions.tags}">
-                            <td th:text ="${tag}"></td>
-                        </tr>
-                </table>
-            </form>
-
-            <a th:href="@{/attractions}" class="touristguide" > Back </a>
 </div>
 
 <footer class="site-footer">
