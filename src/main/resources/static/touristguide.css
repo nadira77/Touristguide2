@@ -280,11 +280,13 @@ a {
 }
 
 .tags-box__header {
-    background: #b12f21;
+    background: #c6c1c1;
     padding: 28px 36px 20px;
     border-bottom: 1px solid #3d5578;
     color: white;
-
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
 }
 
 .tags-box h2 {
