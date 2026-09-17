@@ -280,10 +280,11 @@ a {
 }
 
 .tags-box__header {
-    background: #b12f21;
+    background: #efeeee;
     padding: 28px 36px 20px;
-    border-bottom: 1px solid #3d5578;
-    color: white;
+    border-bottom: 1px solid #868687;
+
+    color: #031b2b;
 
 }
 
@@ -327,10 +328,10 @@ a {
     align-items: center;
     gap: 8px;
     padding: 12px 47px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #283047;
     border-radius: 8px;
-    background: #1f2937;
-    color: white;
+    background: #d4d4d4;
+    color: #283047;
     font-size: 1rem;
     font-weight: 800;
     font-family: inherit;
