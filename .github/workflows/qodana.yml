@@ -23,3 +23,5 @@ jobs:
         with:
           pr-mode: false
           use-caches: true
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
