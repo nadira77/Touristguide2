@@ -278,14 +278,14 @@ a {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
 }
-
 .tags-box__header {
-    background: #efeeee;
+    background: #e2e2e2;
     padding: 28px 36px 20px;
-    border-bottom: 1px solid #868687;
-
-    color: #031b2b;
-
+    border-bottom: 1px solid #3d5578;
+    color: #283047;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
 }
 
 .tags-box h2 {
