@@ -278,13 +278,14 @@ a {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
 }
-
 .tags-box__header {
-    background: #b12f21;
+    background: #e2e2e2;
     padding: 28px 36px 20px;
     border-bottom: 1px solid #3d5578;
-    color: white;
-
+    color: #283047;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
 }
 
 .tags-box h2 {
@@ -327,10 +328,10 @@ a {
     align-items: center;
     gap: 8px;
     padding: 12px 47px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #283047;
     border-radius: 8px;
-    background: #1f2937;
-    color: white;
+    background: #d4d4d4;
+    color: #283047;
     font-size: 1rem;
     font-weight: 800;
     font-family: inherit;

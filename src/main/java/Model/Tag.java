@@ -5,5 +5,7 @@ public enum Tag {
     FREE,
     ART,
     MUSEUM,
-    NATURE
+    NATURE,
+    LANDMARK,
+    HISTORIC
 }
