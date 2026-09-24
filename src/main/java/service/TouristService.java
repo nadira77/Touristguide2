@@ -2,7 +2,6 @@ package service;
 
 import Model.Tag;
 import Model.TouristAttraction;
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 import repository.TouristRepository;
 
