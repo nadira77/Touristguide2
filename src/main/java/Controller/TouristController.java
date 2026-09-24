@@ -37,11 +37,6 @@ public class TouristController {
         return "tags";
     }
 
-  /*  @GetMapping("/attractions/add")
-    public String addForm( Model model) {
-        model.addAttribute("attraction", new TouristAttraction());
-        return "add";
-    }*/
     //Tag.values() gives Thymeleaf adgang til enum og husk import enum class
   @GetMapping("/attractions/add")
   public String addForm(Model model) {
