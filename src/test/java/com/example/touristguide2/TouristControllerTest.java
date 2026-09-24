@@ -42,15 +42,6 @@ public class TouristControllerTest {
         verify(touristService).deleteTouristAttraction("Tivoli");
 
     }
-    @Test
-    void delete() throws Exception{
-        mockMvc.perform(post("/attractions/delete/{name}", "Tivoli"))
-                .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/attractions"));
-
-        verify(touristService).deleteTouristAttraction("Tivoli");
-
-    }
 
     @Test
     void shouldUpdateAttraction() throws Exception {
