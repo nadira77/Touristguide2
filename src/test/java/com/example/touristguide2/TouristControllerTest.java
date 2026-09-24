@@ -1,5 +1,6 @@
 package com.example.touristguide2;
 import Controller.TouristController;
+import Model.Tag;
 import Model.TouristAttraction;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,16 @@ public class TouristControllerTest {
     private MockMvc mockMvc;
     @MockitoBean
     private TouristService touristService;
+
+    @Test
+    void addForm() throws Exception {
+
+        mockMvc.perform(get("/attractions/add"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("add"))
+                .andExpect(model().attributeExists("attraction"))
+                .andExpect(model().attribute("tags", Tag.values()));
+    }
 
     @Test
     void saveAttraction_redirectsToAttractions() throws Exception {
