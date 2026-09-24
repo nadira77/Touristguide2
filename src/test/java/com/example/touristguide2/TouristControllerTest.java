@@ -42,4 +42,15 @@ public class TouristControllerTest {
         verify(touristService).deleteTouristAttraction("Tivoli");
 
     }
+
+    @Test
+    void shouldUpdateAttraction() throws Exception {
+        mockMvc.perform(post("/attractions/update")
+                        .param("name", "Tivoli")
+                        .param("description", "Updated description"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/attractions"));
+
+        verify(touristService).updateTouristAttraction(eq("Tivoli"), any(TouristAttraction.class));
+    }
 }
