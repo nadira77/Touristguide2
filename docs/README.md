@@ -1,6 +1,6 @@
 ### ER-model – Touristguide
 
-![ER diagram](ER_TouristGuide%20Del3.png)
+![ER diagram](ED_Touristguide%20del3.png)
 
 ## Beskrivelse
 Databasen gemmer turistattraktioner. Hver attraktion hører til én by og kan have flere tags, fx GRATIS, MUSEUM og BØRNEVENLIG. Databasen erstatter den hardcodede liste i TouristRepository.
