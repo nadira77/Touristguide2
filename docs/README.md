@@ -46,3 +46,20 @@ Databasen gemmer turistattraktioner. Hver attraktion ligger i én by og kan have
 * **Primærnøgler:** `attraction_id`, `city_id` og `tag_id` autogenereres (AUTO_INCREMENT). I ATTRACTION_TAG er primærnøglen kombinationen af de to fremmednøgler, så den autogenereres ikke.
 * **Fremmednøgler:** `city_id` i ATTRACTION og begge kolonner i ATTRACTION_TAG sikrer, at man kun kan pege på byer, attraktioner og tags der findes.
 * **Unikke indeks:** `city_name` og `tag_name` er unikke, så samme by eller tag ikke oprettes to gange. Kombinationen i ATTRACTION_TAG er automatisk unik, fordi den er primærnøgle.
+
+* ## Designvalg Til Datatyper *
+
+**Datatyper**
+Vi bruger INT til alle id'er. Til tekst bruger vi VARCHAR: 100 tegn til navnet på en attraktion, 1000 tegn til beskrivelsen, da den kan være lang, og 50 tegn til navne på byer og tags.
+
+**NOT NULL**
+Alle kolonner er NOT NULL. En attraktion giver ikke mening uden navn, beskrivelse eller by, og en by eller et tag skal altid have et navn.
+
+**Primærnøgler**
+Primærnøglerne `attraction_id`, `city_id` og `tag_id` autogenereres med AUTO_INCREMENT. Så indsætter vi kun navn, beskrivelse og by, og databasen giver selv rækken det næste ledige nummer. Det sikrer, at to rækker aldrig får samme id ved en fejl. I ATTRACTION_TAG autogenereres primærnøglen ikke, da den består af kombinationen af `attraction_id` og `tag_id`.
+
+**Fremmednøgler**
+`city_id` i ATTRACTION peger på CITY. I ATTRACTION_TAG peger `attraction_id` på ATTRACTION og `tag_id` på TAG. Fremmednøglerne sikrer, at man kun kan pege på byer, attraktioner og tags, der findes.
+
+**Unikke indeks**
+`attraction_name`, `city_name` og `tag_name` er unikke, så den samme attraktion, by eller det samme tag ikke kan oprettes to gange. AUTO_INCREMENT forhindrer kun dobbelte id'er, ikke dobbelte navne, så vi har brug for begge dele. Id'erne behøver intet ekstra unikt indeks, da en primærnøgle altid er unik. Kombinationen i ATTRACTION_TAG er også automatisk unik, fordi den er primærnøgle. Beskrivelsen er ikke unik, da to attraktioner godt må have en lignende beskrivelse.
