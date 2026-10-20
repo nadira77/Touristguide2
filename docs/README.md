@@ -47,7 +47,7 @@ Databasen gemmer turistattraktioner. Hver attraktion ligger i én by og kan have
 * **Fremmednøgler:** `city_id` i ATTRACTION og begge kolonner i ATTRACTION_TAG sikrer, at man kun kan pege på byer, attraktioner og tags der findes.
 * **Unikke indeks:** `city_name` og `tag_name` er unikke, så samme by eller tag ikke oprettes to gange. Kombinationen i ATTRACTION_TAG er automatisk unik, fordi den er primærnøgle.
 
-* ## Designvalg Til Datatyper *
+## Designvalg Til Datatyper 
 
 **Datatyper**
 Vi bruger INT til alle id'er. Til tekst bruger vi VARCHAR: 100 tegn til navnet på en attraktion, 1000 tegn til beskrivelsen, da den kan være lang, og 50 tegn til navne på byer og tags.
