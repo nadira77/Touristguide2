@@ -61,5 +61,5 @@ Primærnøglerne `attraction_id`, `city_id` og `tag_id` autogenereres med AUTO_I
 * **Fremmednøgler**
 `city_id` i ATTRACTION peger på CITY. I ATTRACTION_TAG peger `attraction_id` på ATTRACTION og `tag_id` på TAG. Fremmednøglerne sikrer, at man kun kan pege på byer, attraktioner og tags, der findes.
 
-**Unikke indeks**
+* **Unikke indeks**
 `attraction_name`, `city_name` og `tag_name` er unikke, så den samme attraktion, by eller det samme tag ikke kan oprettes to gange. AUTO_INCREMENT forhindrer kun dobbelte id'er, ikke dobbelte navne, så vi har brug for begge dele. Id'erne behøver intet ekstra unikt indeks, da en primærnøgle altid er unik. Kombinationen i ATTRACTION_TAG er også automatisk unik, fordi den er primærnøgle. Beskrivelsen er ikke unik, da to attraktioner godt må have en lignende beskrivelse.
