@@ -1,6 +1,7 @@
 ### ER-model – Touristguide
 
 ER diagram
+
 https://lucid.app/lucidchart/283ff079-1301-4caa-9c8b-2c2d4c173dca/edit?invitationId=inv_ad224aa9-c1b0-4cfa-aae0-a828aba43a1a&page=0_0#
 
 ## Beskrivelse
