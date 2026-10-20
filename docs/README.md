@@ -49,16 +49,16 @@ Databasen gemmer turistattraktioner. Hver attraktion ligger i én by og kan have
 
 ## Designvalg Til Datatyper 
 
-**Datatyper**
+* **Datatyper**
 Vi bruger INT til alle id'er. Til tekst bruger vi VARCHAR: 100 tegn til navnet på en attraktion, 1000 tegn til beskrivelsen, da den kan være lang, og 50 tegn til navne på byer og tags.
 
-**NOT NULL**
+* **NOT NULL**
 Alle kolonner er NOT NULL. En attraktion giver ikke mening uden navn, beskrivelse eller by, og en by eller et tag skal altid have et navn.
 
-**Primærnøgler**
+* **Primærnøgler**
 Primærnøglerne `attraction_id`, `city_id` og `tag_id` autogenereres med AUTO_INCREMENT. Så indsætter vi kun navn, beskrivelse og by, og databasen giver selv rækken det næste ledige nummer. Det sikrer, at to rækker aldrig får samme id ved en fejl. I ATTRACTION_TAG autogenereres primærnøglen ikke, da den består af kombinationen af `attraction_id` og `tag_id`.
 
-**Fremmednøgler**
+* **Fremmednøgler**
 `city_id` i ATTRACTION peger på CITY. I ATTRACTION_TAG peger `attraction_id` på ATTRACTION og `tag_id` på TAG. Fremmednøglerne sikrer, at man kun kan pege på byer, attraktioner og tags, der findes.
 
 **Unikke indeks**
