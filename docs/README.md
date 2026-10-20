@@ -36,10 +36,9 @@ Databasen gemmer turistattraktioner. Hver attraktion ligger i én by og kan have
 | tag_id | INT | PK, FK | Peger på TAG |
 
 ## Relationer
-* **Attraction har en mange-til-mange-relation til Tag. Det betyder, at én attraktion kan have 0 til mange tags, og ét tag kan høre til 0 til mange attraktioner. Fx har Tivoli både tagget børnevenlig og natur, og natur bruges også af Rosenborg og Nyhavn. Da en mange-til-mange-relation ikke kan laves direkte i databasen, bruger vi koblingstabellen ATTRACTION_TAG.
-* Linjerne til ATTRACTION_TAG er fuldt optrukne, fordi relationen er identificerende: `attraction_id` og `tag_id` er både fremmednøgler og tilsammen primærnøgle (PK, FK).
+* Attraction har en mange-til-mange-relation til Tag. Det betyder, at én attraktion kan have 0 til mange tags, og ét tag kan høre til 0 til mange attraktioner. Fx har Tivoli både tagget børnevenlig og natur, og natur bruges også af Rosenborg og Nyhavn. Da en mange-til-mange-relation ikke kan laves direkte i databasen, bruger vi koblingstabellen ATTRACTION_TAG. Linjerne til ATTRACTION_TAG er fuldt optrukne, fordi relationen er identificerende: `attraction_id` og `tag_id` er både fremmednøgler og tilsammen primærnøgle (PK, FK).
 
-* **City har en en-til-mange-relation til Attraction. Én by kan have 0 til mange attraktioner, men hver attraktion ligger i præcis én by. Derfor har Attraction fremmednøglen `city_id`. Linjen er stiplet, fordi relationen er ikke-identificerende: `city_id` er kun en fremmednøgle og ikke en del af Attractions primærnøgle.
+* City har en en-til-mange-relation til Attraction. Én by kan have 0 til mange attraktioner, men hver attraktion ligger i præcis én by. Derfor har Attraction fremmednøglen `city_id`. Linjen er stiplet, fordi relationen er ikke-identificerende: `city_id` er kun en fremmednøgle og ikke en del af Attractions primærnøgle.
 
 ## Designvalg
 * **Datatyper:** INT til id'er. VARCHAR med en passende længde til tekst – beskrivelser kan være lange, derfor 1000.
