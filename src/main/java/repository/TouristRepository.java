@@ -85,14 +85,14 @@ public class TouristRepository {
 
     // DELETE: sletter en attraktion ud fra navn
     public boolean deleteTouristAttraction(String name) {
-        String sql = "DELETE FROM attraction WHERE name = ?";
+        String sql = "DELETE FROM attraction WHERE attraction_name = ?";
         return jdbcTemplate.update(sql, name) > 0;
     }
 
     // cities uden dubletter
 
     public List<String> getCities() {
-        String sql = "SELECT DISTINCT city FROM attraction";
+        String sql = "SELECT DISTINCT   c.city_name FROM city c JOIN attraction a ON a.city_id=c.city_id";
         return jdbcTemplate.queryForList(sql, String.class);
     }
 
