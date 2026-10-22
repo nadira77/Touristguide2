@@ -1,5 +1,5 @@
 
-package Model;
+package com.example.touristguide2.model;
 
 import org.springframework.jdbc.core.RowMapper;
 

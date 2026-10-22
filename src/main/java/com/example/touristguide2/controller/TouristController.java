@@ -1,11 +1,11 @@
-package Controller;
+package com.example.touristguide2.controller;
 
-import Model.TouristAttraction;
+import com.example.touristguide2.model.TouristAttraction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import service.TouristService;
-import Model.Tag;
+import com.example.touristguide2.service.TouristService;
+import com.example.touristguide2.model.Tag;
 
 @Controller
 public class TouristController {

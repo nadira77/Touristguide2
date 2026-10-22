@@ -1,4 +1,4 @@
-package Model;
+package com.example.touristguide2.model;
 
 public enum Tag {
     KID_FRIENDLY,
