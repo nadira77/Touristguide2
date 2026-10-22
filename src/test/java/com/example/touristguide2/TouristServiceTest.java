@@ -2,10 +2,12 @@
 package com.example.touristguide2;
 
 
-import Model.TouristAttraction;
+
+import com.example.touristguide2.model.TouristAttraction;
+import com.example.touristguide2.repository.TouristRepository;
+import com.example.touristguide2.service.TouristService;
 import org.junit.jupiter.api.Test;
-import repository.TouristRepository;
-import service.TouristService;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
