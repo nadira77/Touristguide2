@@ -15,7 +15,7 @@ class TouristServiceTest {
     @Test
     void testGetTouristAttractionByName() {
 
-        //opretter en falsk repository, opretter et service objekt
+        //opretter en falsk repository,så opretter vi et service objekt
         TouristRepository repository = mock(TouristRepository.class);
         TouristService service = new TouristService(repository);
 
@@ -27,7 +27,7 @@ class TouristServiceTest {
         TouristAttraction result =
                 service.getTouristAttractionByName("Tivoli");
 
-        // Assert Tjekker, om resultatet er true
+        // Assert Tjekker, om resultatet er true-
         assertEquals(attraction, result);
         verify(repository).findByName("Tivoli");
     }
