@@ -1,4 +1,4 @@
-### ER-model – Touristguide
+## ER-model – Touristguide
 
 ![ER diagram](Blank%20diagram.png)
 
