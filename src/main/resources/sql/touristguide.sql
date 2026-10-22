@@ -14,7 +14,7 @@ CREATE TABLE attraction (
     description VARCHAR(1000) NOT NULL,
     city_name VARCHAR(50) NOT NULL
 );
-DROP TABLE attraction;
+
 Show TABLES;
 CREATE TABLE tag (
     tag_id INT AUTO_INCREMENT,
