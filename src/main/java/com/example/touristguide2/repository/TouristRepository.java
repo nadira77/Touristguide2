@@ -1,9 +1,9 @@
 
-package repository;
+package com.example.touristguide2.repository;
 
-import Model.AttractionRowMapper;
-import Model.Tag;
-import Model.TouristAttraction;
+import com.example.touristguide2.model.AttractionRowMapper;
+import com.example.touristguide2.model.Tag;
+import com.example.touristguide2.model.TouristAttraction;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -23,7 +23,7 @@ public class TouristRepository {
     public TouristAttraction save(TouristAttraction a) {
         String sql = "INSERT INTO attraction (attraction_name, description, city_name) VALUES (?, ?, ?)";
 
-        jdbcTemplate.update(sql, a.getName(), a.getDescription());
+        jdbcTemplate.update(sql, a.getName(), a.getDescription(), a.getCity());
 
         Integer attractionId = jdbcTemplate.queryForObject(
                 "SELECT attraction_id FROM attraction WHERE attraction_name = ?",

@@ -1,12 +1,12 @@
 package com.example.touristguide2;
-import Controller.TouristController;
-import Model.Tag;
-import Model.TouristAttraction;
+import com.example.touristguide2.controller.TouristController;
+import com.example.touristguide2.model.Tag;
+import com.example.touristguide2.model.TouristAttraction;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
-import service.TouristService;
+import com.example.touristguide2.service.TouristService;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

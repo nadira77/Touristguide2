@@ -1,9 +1,9 @@
-package service;
+package com.example.touristguide2.service;
 
-import Model.Tag;
-import Model.TouristAttraction;
+import com.example.touristguide2.model.Tag;
+import com.example.touristguide2.model.TouristAttraction;
 import org.springframework.stereotype.Service;
-import repository.TouristRepository;
+import com.example.touristguide2.repository.TouristRepository;
 
 import java.util.List;
 

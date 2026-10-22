@@ -7,7 +7,6 @@ CREATE TABLE city (
     city_name VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY (city_id)
 );
-DROP TABLE city;
 CREATE TABLE attraction (
     attraction_id INT PRIMARY KEY AUTO_INCREMENT,
     attraction_name VARCHAR(100) NOT NULL UNIQUE,
