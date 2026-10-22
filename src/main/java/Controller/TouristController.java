@@ -55,7 +55,6 @@ public class TouristController {
     public String editForm(@PathVariable String name, Model model) {
         TouristAttraction attraction = touristService.getTouristAttraction(name);
         model.addAttribute("attraction", attraction);
-        model.addAttribute("allCities", touristService.getCities());
         model.addAttribute("allTags", touristService.getTags());
         return "updateAttraction";
     }
